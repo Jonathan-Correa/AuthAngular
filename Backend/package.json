@@ -1,20 +1,26 @@
 {
-  "name": "Backend",
+  "name": "MyFirst_WebSite",
   "version": "1.0.0",
-  "description": "",
+  "description": "WebSite to learn how to code",
   "main": "index.js",
+  "repository": "git@github.com:Jonathan-Correa/MyFirstWebSite.git",
+  "author": "Jonathan Correa <flyacab1312@gmail.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "src/index.js",
+    "dev": "nodemon src/index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.5",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
-    "mongoose": "^5.8.7",
-    "passport": "^0.4.1",
+    "mongoose": "^5.7.14",
+    "morgan": "^1.9.1",
+    "passport": "^0.4.0",
     "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
   }
 }
