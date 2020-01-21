@@ -20,14 +20,12 @@ exports.postSignup = async function(req, res, next){
   newUser.save((err, user) => {
 
     if(err) console.error(err);
-    
-    else req.logIn(user, (err) => {
+
+    req.logIn(user, (err) => {
 
       if(err) next(err);
 
       else {
-        
-        user.email = null;
         user.password = null;
 
         res.json(user);
@@ -52,10 +50,7 @@ exports.postSingin = (req, res, next) => {
       if(err) next(err);
 
       else {
-        
-        user.email = null;
         user.password = null;
-
         res.json(user);
       }
     });
