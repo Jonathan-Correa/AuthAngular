@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "WebSite to learn how to code",
   "main": "index.js",
-  "repository": "git@github.com:Jonathan-Correa/MyFirstWebSite.git",
+  "repository": "https://github.com/Jonathan-Correa/AuthAngular.git",
   "author": "Jonathan Correa <flyacab1312@gmail.com>",
   "license": "MIT",
   "scripts": {

@@ -16,6 +16,9 @@ module.exports = function(app) {
 		.post(userCtlr.postSingin);
 	//----------------------------------------------------------------
 
-	app.route('/users/logout')
+	app.route('/users/signout')
 		.get(authCtrl.isLogged, userCtlr.logout);
+
+	app.route('/profile')
+		.get(authCtrl.isLogged, userCtlr.getProfile);
 }

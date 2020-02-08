@@ -5,7 +5,7 @@ const LocalStrategy = require('passport-local').Strategy;
 
 
 passport.serializeUser((user, done) => {
-  done(null, user.id);
+  done(null, user._id);
 });
 
 
@@ -19,11 +19,16 @@ passport.deserializeUser(function(id, done) {
 
 //function para sign In
 passport.use(new LocalStrategy({
-  usernameField: "email"
+  usernameField: "email",
+  passwordField: "password"
 },
   async function(email, password, done){
 
-    const dbUser = await User.findOne({email});
+    const dbUser = await User.findOne({email: email});
+
+    console.log("dbUser");
+    console.log(dbUser);
+    console.log("dbUser");
 
       if(!dbUser){
         return done(null, false, {failure_msg : "The email doesn't exists"});
@@ -41,6 +46,9 @@ passport.use(new LocalStrategy({
 exports.isLogged = (req, res, next) => {
 
     if(req.isAuthenticated()){
+      console.log("req.user");
+      console.log(req.user);
+      console.log("req.user");
       return next();
     }
 

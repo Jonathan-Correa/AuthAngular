@@ -27,7 +27,9 @@ exports.postSignup = async function(req, res, next){
 
       else {
         user.password = null;
-
+        console.log('signup');
+        console.log('signup');
+        console.log('signup');
         res.json(user);
       }
     });
@@ -37,12 +39,12 @@ exports.postSignup = async function(req, res, next){
 //User SignIn
 exports.postSingin = (req, res, next) => {
 
-  passport.authenticate('local', (err, user) => {
+  passport.authenticate('local', (err, user, info) => {
 
     if(err) next(err);
 
     if(!user) {
-      return res.status(401).json({ message : "this email doesn't exists"});
+      return res.status(401).json({ message : info});
     }
     
     req.logIn(user, (err) => {
@@ -51,6 +53,9 @@ exports.postSingin = (req, res, next) => {
 
       else {
         user.password = null;
+        console.log('signin');
+        console.log('signin');
+        console.log('signin');
         res.json(user);
       }
     });
@@ -58,8 +63,19 @@ exports.postSingin = (req, res, next) => {
 }
 
 
-exports.logout = (req, res, next) => {
+exports.logout = (req, res) => {
+
+  console.log("req.user");
+  console.log(req.user.email);
+  console.log("req.user");
 
   req.logout();
   res.json({message : "logout successfully"});
+}
+ 
+exports.getProfile = (req, res) => {
+
+  var userProfile = User.findOne({email : req.user.email});
+
+  res.json(userProfile);
 }

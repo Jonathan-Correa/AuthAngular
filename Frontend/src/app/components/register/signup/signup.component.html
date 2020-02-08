@@ -8,7 +8,7 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <form [formGroup]="userForm" (submit)="signup(userForm.value)">
+                    <form [formGroup]="userForm" (submit)="signup(userForm)">
                         <div class="form-group">
                             <input type="text" formControlName="name" class="form-control" placeholder="Fill your name" required autofocus>
                         </div>
@@ -24,7 +24,6 @@
                         <div class="form-group">
                             <button [disabled]="userForm.invalid" class="btn btn-dark btn-block" [disabled]="!userForm.valid">Submit</button>   
                         </div>
-                        <p>¿You don't have an account? <a href="/signin">Sign In</a> </p>
                     </form>
                 </div>
             </div>

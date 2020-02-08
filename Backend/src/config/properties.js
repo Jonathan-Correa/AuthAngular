@@ -9,7 +9,7 @@ module.exports = {
 	},
 	sessionConfig : { //configuraciones de express session
 	  secret: 'kjhggfjhgfngjhgjg',
-	  name : "mysession.sid",
+	  name : "mysecretcookie",
 	  resave : false,
 	  saveUninitialized : false,
 	  cookie: { 
